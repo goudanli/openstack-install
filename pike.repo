@@ -1,0 +1,5 @@
+[pike]
+name=pike
+baseurl=https://mirrors.tuna.tsinghua.edu.cn/centos/7/cloud/x86_64/openstack-pike/
+enabled=1
+gpgcheck=0

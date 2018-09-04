@@ -1,0 +1,5 @@
+[rhel]
+name=rhel
+baseurl=https://mirrors.tuna.tsinghua.edu.cn/centos/7/virt/x86_64/kvm-common/
+enabled=1
+gpgcheck=0

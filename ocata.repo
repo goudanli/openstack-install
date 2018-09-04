@@ -1,0 +1,5 @@
+[ocata]
+name=ocata
+baseurl=https://mirrors.tuna.tsinghua.edu.cn/centos/7/cloud/x86_64/openstack-ocata/
+enabled=1
+gpgcheck=0

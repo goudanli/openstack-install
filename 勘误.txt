@@ -1,0 +1,15 @@
+Openstack安装Dashboard之后无法打开页面
+按照官方文档，安装了Dashboard，并进行了配置。按照道理应该可以登录页面，但是打开什么反应都没有。
+
+[root@controller1 ~]# cat /var/log/httpd/error_log 
+以下几条日志与尝试打开页面失败相关： 
+[Thu Nov 16 17:09:27.362380 2017] [core:error] [pid 22918] [client 10.11.113.61:62148] Script timed out before returning headers: django.wsgi 
+[Thu Nov 16 17:09:29.649566 2017] [core:error] [pid 22979] [client 10.11.113.39:55327] Script timed out before returning headers: django.wsgi 
+[Thu Nov 16 17:09:30.450777 2017] [core:error] [pid 22980] [client 10.11.113.61:62149] Script timed out before returning headers: django.wsgi
+
+猜测这个事情应该和django.wsgi有关系，百度到有人给出解决方法。
+
+编辑：/etc/httpd/conf.d/openstack-dashboard.conf 
+在WSGISocketPrefix run/wsgi下面加一行代码： 
+WSGIApplicationGroup %{GLOBAL} 
+保存，重启httpd服务。
