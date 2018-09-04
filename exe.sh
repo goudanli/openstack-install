@@ -758,6 +758,7 @@ IPS=`echo $IP|awk -F\. '{ print $1"."$2"."$3 }'`
 openstack subnet create --network public --allocation-pool start=$IPS.70,end=$IPS.100 \
  --dns-nameserver 8.8.8.8 --gateway $IPS.1 --subnet-range $IPS.0/24 public-lan
 
+wget http://download.cirros-cloud.net/0.3.5/cirros-0.3.5-x86_64-disk.img
 
 echo '上传镜像到镜像服务'
 openstack image create "cirros-0.3.5-x86_64" --file cirros-0.3.5-x86_64-disk.img \
